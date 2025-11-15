@@ -6,7 +6,7 @@ public class MoveLeft : MonoBehaviour
 
     void Start()
     {
-        speed = 3;
+        
     }
     
     void Update()

@@ -125,8 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3e5aef13f78a241ab4323e0942ba88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpforce: 7
+  jumpforce: 8
   floorCollider: {fileID: 0}
+  shelfCollider: {fileID: 0}
 --- !u!61 &910290101415271779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -188,7 +189,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

@@ -14,10 +14,11 @@ public class GameOver : MonoBehaviour
 {
     [Header("Death Settings")]
     [Tooltip("Any GameObject with one of these tags will cause an instant game over on collision.")]
-    [SerializeField] private string[] deathTags = new string[] { "Obstacle", "Knife", "Fire", "Enemy" };
+    // [SerializeField] private string[] deathTags = new string[] { "Obstacle", "Knife", "Fire", "Enemy" };
+    private string[] deathTags = new string[] { "Obstacle"};
 
     [Tooltip("Optional: if a collided GameObject has one of these component type names, it will also count as death.")]
-    [SerializeField] private string[] deathComponentTypeNames = new string[] { "Knife", "Fire" };
+    // [SerializeField] private string[] deathComponentTypeNames = new string[] { "Knife", "Fire" };
 
     [Header("Restart")]
     [Tooltip("Delay in seconds between death and scene restart (allows effects/animations).")]
