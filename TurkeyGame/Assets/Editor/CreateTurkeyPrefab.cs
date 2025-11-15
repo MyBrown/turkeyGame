@@ -105,7 +105,7 @@ public static class CreateTurkeyPrefab
                 // Attempt to assign the created prefab to any Spawner_Script instances in the open scene(s)
                 try
                 {
-                    var spawners = UnityEngine.Object.FindObjectsOfType<Spawner_Script>();
+                    var spawners = UnityEngine.Object.FindObjectsByType<Spawner_Script>(FindObjectsSortMode.None);
                     if (spawners != null && spawners.Length > 0)
                     {
                         foreach (var sp in spawners)

@@ -2,8 +2,6 @@ using UnityEngine;
 
 /// <summary>
 /// Spawner_Script is responsible for creating the player (turkey) when the game starts.
-/// Attach this script to a GameObject in the scene (for example an empty "Spawner" GameObject),
-/// then assign the `turkeyPrefab` in the Inspector. Optionally assign a `spawnPoint` Transform.
 /// </summary>
 public class Spawner_Script : MonoBehaviour
 {
@@ -60,6 +58,13 @@ public class Spawner_Script : MonoBehaviour
 
         turkeyInstance = Instantiate(turkeyPrefab, spawnPosition, spawnRotation);
         turkeyInstance.name = "Player_Turkey"; // set a predictable name
+
+        // Ensure the spawned turkey has a GameOver component so collisions cause a restart.
+        var goComp = turkeyInstance.GetComponent<GameOver>();
+        if (goComp == null)
+        {
+            turkeyInstance.AddComponent<GameOver>();
+        }
     }
 
     /// <summary>
