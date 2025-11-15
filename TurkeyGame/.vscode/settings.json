@@ -66,5 +66,6 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj",
     },
-    "dotnet.defaultSolution": "TurkeyGame.sln"
+    "dotnet.defaultSolution": "TurkeyGame.sln",
+    "dotnet.preferCSharpExtension": true
 }
