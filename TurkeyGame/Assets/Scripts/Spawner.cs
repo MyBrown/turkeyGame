@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        secondsBetweenSpawn = 1;
+        secondsBetweenSpawn = 3;
         obstacles = new GameObject[] {stovetop, knife, fork};
         
         StartCoroutine(SpawnObjects());
@@ -33,8 +33,6 @@ public class Spawner : MonoBehaviour
             Vector3 spawnLoc = spawnLocations[obstacleIndex];
             GameObject newObstacle = Instantiate(currentOb, transform);
             newObstacle.transform.position = spawnLoc;
-
-            newObstacle.transform.Translate(Vector2.left * Time.deltaTime);
 
             yield return new WaitForSeconds(secondsBetweenSpawn);
         }
