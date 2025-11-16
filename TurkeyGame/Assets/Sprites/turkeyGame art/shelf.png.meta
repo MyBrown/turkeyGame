@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 3823b9e9ba7a1d243a5262216980884c
+guid: 747b385c1b57b3446b47f3b1c42aa4f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 761100573506273824
-    second: knife_0
+      213: 5795814407860715475
+    second: shelf_0
+  - first:
+      213: 8205129164779952402
+    second: shelf_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 7
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: knife_0
+      name: shelf_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 2
-        width: 9
-        height: 28
+        x: 14
+        y: 29
+        width: 22
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 022003a60f8ff8a00800000000000000
-      internalID: 761100573506273824
+      spriteID: 3dff0a41f7ede6050800000000000000
+      internalID: 5795814407860715475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shelf_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 2
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21918e2b0897ed170800000000000000
+      internalID: 8205129164779952402
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      knife_0: 761100573506273824
+      shelf_0: 5795814407860715475
+      shelf_1: 8205129164779952402
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -9,6 +9,7 @@ public class TurkeyMovement : MonoBehaviour
     private Rigidbody2D turkeyRigidbody;
     private BoxCollider2D turkeyCollider;
     public BoxCollider2D floorCollider;
+    public BoxCollider2D shelfCollider;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

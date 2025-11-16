@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3823b9e9ba7a1d243a5262216980884c
+guid: 14469164f2872d4448fec9f1e3cc0d6a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 761100573506273824
-    second: knife_0
+      213: -8388564060385117454
+    second: chef(3)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: knife_0
+      name: chef(3)_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 2
-        width: 9
-        height: 28
+        x: 3
+        y: 7
+        width: 58
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 022003a60f8ff8a00800000000000000
-      internalID: 761100573506273824
+      spriteID: 2faf22d7e65d59b80800000000000000
+      internalID: -8388564060385117454
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      knife_0: 761100573506273824
+      chef(3)_0: -8388564060385117454
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
