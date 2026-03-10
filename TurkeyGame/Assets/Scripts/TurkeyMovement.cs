@@ -1,11 +1,9 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 public class TurkeyMovement : MonoBehaviour
 {
     public float jumpforce;
     private float extraJump;
-    private bool isGrounded;
+    public LayerMask groundLayer;
     private Rigidbody2D turkeyRigidbody;
     private BoxCollider2D turkeyCollider;
     public BoxCollider2D floorCollider;
@@ -18,23 +16,36 @@ public class TurkeyMovement : MonoBehaviour
         turkeyCollider = GetComponent<BoxCollider2D>();
         
     }
+    private bool isTouchingShelf = false;
 
-    // Update is called once per frame
     void Update()
     {
-        if (turkeyCollider.IsTouching(floorCollider))
+        bool touchingFloor = turkeyCollider.IsTouching(floorCollider);
+
+        if (touchingFloor || isTouchingShelf)
         {
             extraJump = 1;
         }
-            
-        if (Input.GetKeyDown(KeyCode.Space) && turkeyCollider.IsTouching(floorCollider))
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            turkeyRigidbody.linearVelocity = Vector2.up * jumpforce;
-        }    
-        else if (Input.GetKeyDown(KeyCode.Space) && extraJump > 0)
-        {
-            turkeyRigidbody.linearVelocity = Vector2.up * jumpforce;
-            extraJump--;
+            if (touchingFloor)
+            {
+                // Normal full jump from floor
+                turkeyRigidbody.linearVelocity = UnityEngine.Vector2.up * jumpforce;
+            }
+            else if (isTouchingShelf)
+            {
+                // Half force jump from shelf
+                turkeyRigidbody.linearVelocity = UnityEngine.Vector2.up * (jumpforce / 2);
+                extraJump = 0;
+            }
+            else if (extraJump > 0)
+            {
+                // Double jump in air
+                turkeyRigidbody.linearVelocity = UnityEngine.Vector2.up * jumpforce;
+                extraJump--;
+            }
         }
     }
 }
