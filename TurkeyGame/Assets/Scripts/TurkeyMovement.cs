@@ -1,51 +1,74 @@
 using UnityEngine;
+
 public class TurkeyMovement : MonoBehaviour
 {
-    public float jumpforce;
-    private float extraJump;
+    // Jump Settings
+    public float jumpforce = 8f;
+    public int maxExtraJumps = 1;
+    private int extraJumpsRemaining;
+    private bool jumpPressed;
+    private bool isGrounded;
+
+    // Layer Detection
     public LayerMask groundLayer;
+
+    // Collider objects and j
     private Rigidbody2D turkeyRigidbody;
     private BoxCollider2D turkeyCollider;
-    public BoxCollider2D floorCollider;
-    public BoxCollider2D shelfCollider;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Assigns rigidbodies to the components 
         turkeyRigidbody = GetComponent<Rigidbody2D>();
         turkeyCollider = GetComponent<BoxCollider2D>();
-        
+        extraJumpsRemaining = maxExtraJumps;
     }
-    private bool isTouchingShelf = false;
 
     void Update()
     {
-        bool touchingFloor = turkeyCollider.IsTouching(floorCollider);
-
-        if (touchingFloor || isTouchingShelf)
-        {
-            extraJump = 1;
-        }
-
+        // Checks for input 
         if (Input.GetKeyDown(KeyCode.Space))
+            jumpPressed = true;
+    }
+
+    void FixedUpdate()
+    {
+        bool isGrounded = IsStandingOnLayer(groundLayer);
+
+        if (isGrounded)
         {
-            if (touchingFloor)
-            {
-                // Normal full jump from floor
-                turkeyRigidbody.linearVelocity = UnityEngine.Vector2.up * jumpforce;
-            }
-            else if (isTouchingShelf)
-            {
-                // Half force jump from shelf
-                turkeyRigidbody.linearVelocity = UnityEngine.Vector2.up * (jumpforce / 2);
-                extraJump = 0;
-            }
-            else if (extraJump > 0)
-            {
-                // Double jump in air
-                turkeyRigidbody.linearVelocity = UnityEngine.Vector2.up * jumpforce;
-                extraJump--;
-            }
+            extraJumpsRemaining = maxExtraJumps;    
         }
+
+        if (!jumpPressed)
+        {
+        return;    
+        } 
+
+        Vector2 v = turkeyRigidbody.linearVelocity;
+
+        if (isGrounded)
+        {
+            v.y = jumpforce;
+        }
+        else if (extraJumpsRemaining > 0)
+        {
+            v.y = jumpforce;
+            extraJumpsRemaining--;
+        }
+
+        turkeyRigidbody.linearVelocity = v;
+        jumpPressed = false;
+    }
+
+    private bool IsStandingOnLayer(LayerMask mask)
+    {
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.useLayerMask = true;
+        filter.layerMask = mask;
+        filter.useTriggers = false;
+
+        Collider2D[] results = new Collider2D[8];
+        int count = turkeyCollider.Overlap(filter, results);
+        return count > 0;
     }
 }
