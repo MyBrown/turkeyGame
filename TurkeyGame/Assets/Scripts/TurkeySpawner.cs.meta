@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 4f3625a0974bfb94eb292a48ce6c67da
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - turkeyPrefab: {fileID: 8381680227139560562, guid: 13237f647a989eb4a9cb5c6b4f7dba30, type: 3}
+  - spawnPoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

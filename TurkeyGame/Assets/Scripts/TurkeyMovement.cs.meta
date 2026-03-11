@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: eb3e5aef13f78a241ab4323e0942ba88
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - floorCollider: {fileID: 3446535531985603331, guid: 7e41c3b1c4c26f54c8a0b41350681bd8, type: 3}
+  - shelfCollider: {fileID: 2649775755949458554, guid: 903a7d60942925e4fbfe9af8a309cae5, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

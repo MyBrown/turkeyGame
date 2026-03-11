@@ -37,6 +37,7 @@ public class GameOver : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log($"Collided with: {collision.gameObject.name} tag={collision.gameObject.tag}");
         if (isDead) return;
         if (IsDeathCollision(collision.gameObject))
         {
@@ -46,6 +47,7 @@ public class GameOver : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log($"Collided with: {other.gameObject.name} tag={other.gameObject.tag}");
         if (isDead) return;
         if (IsDeathCollision(other.gameObject))
         {
