@@ -6,12 +6,11 @@ TagManager:
   tags:
   - Ground
   - Obstacle
-  - Shelf
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Chef
   - Water
   - UI
   - Ground

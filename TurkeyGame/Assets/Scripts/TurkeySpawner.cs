@@ -60,17 +60,17 @@ public class Spawner_Script : MonoBehaviour
         turkeyInstance.name = "Player_Turkey"; // set a predictable name
 
         // Ensure the spawned turkey has a GameOver component so collisions cause a restart.
-        var goComp = turkeyInstance.GetComponent<GameOver>();
+        var goComp = turkeyInstance.GetComponent<GameManager>();
         if (goComp == null)
         {
-            turkeyInstance.AddComponent<GameOver>();
+            turkeyInstance.AddComponent<GameManager>();
         }
     }
 
     /// <summary>
     /// (Optional) Expose the spawned turkey instance to other scripts.
     /// </summary>
-    public GameObject GetTurkeyInstance()
+    private GameObject GetTurkeyInstance()
     {
         return turkeyInstance;
     }

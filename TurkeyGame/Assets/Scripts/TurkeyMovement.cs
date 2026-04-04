@@ -2,73 +2,83 @@ using UnityEngine;
 
 public class TurkeyMovement : MonoBehaviour
 {
-    // Jump Settings
-    public float jumpforce = 8f;
-    public int maxExtraJumps = 1;
-    private int extraJumpsRemaining;
-    private bool jumpPressed;
-    private bool isGrounded;
+// Jump Settings
+public float jumpforce = 8f;
+public int maxExtraJumps = 1;
+private int extraJumpsRemaining;
+private bool jumpPressed;
+private bool isGrounded;
 
-    // Layer Detection
-    public LayerMask groundLayer;
+// Layer Detection
+public LayerMask groundLayer;
+// Collider objects and j
+private Rigidbody2D turkeyRigidbody;
+private BoxCollider2D turkeyCollider;
+void Start()
+{
+    // Assigns rigidbodies to the components 
+    turkeyRigidbody = GetComponent<Rigidbody2D>();
+    turkeyCollider = GetComponent<BoxCollider2D>();
+    extraJumpsRemaining = maxExtraJumps;
+}
 
-    // Collider objects and j
-    private Rigidbody2D turkeyRigidbody;
-    private BoxCollider2D turkeyCollider;
-    void Start()
+void Update()
+{
+    // Checks for input 
+    if (Input.GetKeyDown(KeyCode.Space))
+        jumpPressed = true;
+}
+
+private void OnCollisionEnter2D(Collision2D collision)
+{
+    Debug.Log("Turkey hit: " + collision.gameObject.tag); // ← ADD THIS
+    if (collision.gameObject.CompareTag("Obstacle"))
     {
-        // Assigns rigidbodies to the components 
-        turkeyRigidbody = GetComponent<Rigidbody2D>();
-        turkeyCollider = GetComponent<BoxCollider2D>();
-        extraJumpsRemaining = maxExtraJumps;
+        Debug.Log("Obstacle hit! Calling GameOver..."); // ← ADD THIS
+        GameManager.Instance.TriggerGameOver();
+        Destroy(gameObject);
+    }
+}
+
+void FixedUpdate()
+{
+    bool isGrounded = IsStandingOnLayer(groundLayer);
+
+    if (isGrounded)
+    {
+        extraJumpsRemaining = maxExtraJumps;    
     }
 
-    void Update()
+    if (!jumpPressed)
     {
-        // Checks for input 
-        if (Input.GetKeyDown(KeyCode.Space))
-            jumpPressed = true;
+    return;    
+    } 
+
+    Vector2 v = turkeyRigidbody.linearVelocity;
+
+    if (isGrounded)
+    {
+        v.y = jumpforce;
+    }
+    else if (extraJumpsRemaining > 0)
+    {
+        v.y = jumpforce;
+        extraJumpsRemaining--;
     }
 
-    void FixedUpdate()
-    {
-        bool isGrounded = IsStandingOnLayer(groundLayer);
+    turkeyRigidbody.linearVelocity = v;
+    jumpPressed = false;
+}
 
-        if (isGrounded)
-        {
-            extraJumpsRemaining = maxExtraJumps;    
-        }
+private bool IsStandingOnLayer(LayerMask mask)
+{
+    ContactFilter2D filter = new ContactFilter2D();
+    filter.useLayerMask = true;
+    filter.layerMask = mask;
+    filter.useTriggers = false;
 
-        if (!jumpPressed)
-        {
-        return;    
-        } 
-
-        Vector2 v = turkeyRigidbody.linearVelocity;
-
-        if (isGrounded)
-        {
-            v.y = jumpforce;
-        }
-        else if (extraJumpsRemaining > 0)
-        {
-            v.y = jumpforce;
-            extraJumpsRemaining--;
-        }
-
-        turkeyRigidbody.linearVelocity = v;
-        jumpPressed = false;
-    }
-
-    private bool IsStandingOnLayer(LayerMask mask)
-    {
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.useLayerMask = true;
-        filter.layerMask = mask;
-        filter.useTriggers = false;
-
-        Collider2D[] results = new Collider2D[8];
-        int count = turkeyCollider.Overlap(filter, results);
-        return count > 0;
-    }
+    Collider2D[] results = new Collider2D[8];
+    int count = turkeyCollider.Overlap(filter, results);
+    return count > 0;
+}
 }
