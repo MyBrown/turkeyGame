@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator HandleGameOver()
     {
         Debug.Log("Game Over sequence started...");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(2f);
         GameOverText.SetActive(true);
         Debug.Log("Game Over sequence finished.");
         // Add logic here to restart the level or return to menu

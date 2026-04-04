@@ -1658,6 +1658,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7398439552561150388, guid: 8f101b80222e5ab4eb3ddf2dfda3fd20, type: 3}
+      propertyPath: aliveTurkey
+      value: 
+      objectReference: {fileID: -4377195745876493382, guid: 61a0fc6696eb6ab4796604b0e8a61fcb, type: 3}
+    - target: {fileID: 7398439552561150388, guid: 8f101b80222e5ab4eb3ddf2dfda3fd20, type: 3}
       propertyPath: groundParam
       value: 
       objectReference: {fileID: 0}
@@ -1665,6 +1669,10 @@ PrefabInstance:
       propertyPath: GameOverText
       value: 
       objectReference: {fileID: 996940926}
+    - target: {fileID: 7398439552561150388, guid: 8f101b80222e5ab4eb3ddf2dfda3fd20, type: 3}
+      propertyPath: cookedTurkey
+      value: 
+      objectReference: {fileID: -9052496298671267976, guid: 61a0fc6696eb6ab4796604b0e8a61fcb, type: 3}
     - target: {fileID: 7398439552561150388, guid: 8f101b80222e5ab4eb3ddf2dfda3fd20, type: 3}
       propertyPath: floorCollider
       value: 
