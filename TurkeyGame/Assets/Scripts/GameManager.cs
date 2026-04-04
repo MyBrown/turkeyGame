@@ -7,27 +7,23 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton pattern: Ensure only one GameManager exists
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
         Instance = this;
-        // DontDestroyOnLoad(gameObject); 
+        GameOverText.SetActive(false);
+        Debug.Log("GameManager ready. GameOverText hidden.");
     }
 
     public void TriggerGameOver()
     {
+        Debug.Log("TriggerGameOver called!");
         StartCoroutine(HandleGameOver());
     }
 
-    private IEnumerator HandleGameOver()
+    public IEnumerator HandleGameOver()
     {
         Debug.Log("Game Over sequence started...");
         yield return new WaitForSeconds(2f);
+        GameOverText.SetActive(true);
         Debug.Log("Game Over sequence finished.");
         // Add logic here to restart the level or return to menu
-        GameOverText.SetActive(true);
     }
 }
