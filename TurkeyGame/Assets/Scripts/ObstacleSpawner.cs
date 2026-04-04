@@ -8,20 +8,16 @@ public class Spawner : MonoBehaviour
     public GameObject knife;
     public GameObject fork;
     public GameObject shelf;
-    // public GameObject shelf;
+    public float secondsBetweenSpawn;
     GameObject[] obstacles;
     public Vector3[] spawnLocations;
 
-    private float secondsBetweenSpawn;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        secondsBetweenSpawn = 3;
         obstacles = new GameObject[] {stovetop, knife, fork, shelf};
         
         StartCoroutine(SpawnObjects());
-        
-
         
     }
 
@@ -47,7 +43,6 @@ public class Spawner : MonoBehaviour
                 Vector3 stoveSpawn = spawnLocations[3];
                 stovetop.transform.position = stoveSpawn;
             }
-
 
             yield return new WaitForSeconds(secondsBetweenSpawn);
         }

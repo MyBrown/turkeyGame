@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TurkeyMovement : MonoBehaviour
@@ -28,6 +29,15 @@ public class TurkeyMovement : MonoBehaviour
         // Checks for input 
         if (Input.GetKeyDown(KeyCode.Space))
             jumpPressed = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+    {
+        GameManager.Instance.TriggerGameOver(); 
+        Destroy(gameObject);
+    }
     }
 
     void FixedUpdate()
