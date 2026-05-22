@@ -9,6 +9,8 @@ public class Spawner : MonoBehaviour
     public GameObject fork;
     public GameObject shelf;
     public float secondsBetweenSpawn;
+
+    public float utensilOffset;
     GameObject[] obstacles;
     public Vector3[] spawnLocations;
 
@@ -25,11 +27,13 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            int obstacleIndex = Random.Range(0, 3);
+            int obstacleIndex = Random.Range(0, 4);
             GameObject currentOb = obstacles[obstacleIndex];
-            Vector3 spawnLoc = spawnLocations[obstacleIndex];
+            // Vector2 spawnLoc = spawnLocations[obstacleIndex];
+            utensilOffset = Random.Range(-1, 2);
             GameObject newObstacle = Instantiate(currentOb, transform);
-            newObstacle.transform.position = spawnLoc;
+            // newObstacle.transform.position = spawnLoc;
+            currentOb.transform.Translate(0, utensilOffset, 0);
 
             if (obstacleIndex == 3)
             {
