@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
-
 public class Spawner : MonoBehaviour
 {
     public GameObject stovetop;
@@ -28,24 +26,24 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             int obstacleIndex = Random.Range(0, 4);
-            GameObject currentOb = obstacles[obstacleIndex];
-            // Vector2 spawnLoc = spawnLocations[obstacleIndex];
-            utensilOffset = Random.Range(-1, 2);
-            GameObject newObstacle = Instantiate(currentOb, transform);
-            // newObstacle.transform.position = spawnLoc;
-            currentOb.transform.Translate(0, utensilOffset, 0);
-
-            if (obstacleIndex == 3)
+            
+            if (obstacleIndex == 1 || obstacleIndex == 2)
+            {
+                GameObject currentOb = obstacles[obstacleIndex];
+                GameObject newObstacle = Instantiate(currentOb, transform);
+                currentOb.transform.Translate(0, utensilOffset, 0);
+            }
+            if (obstacleIndex == 0)
             {
                 GameObject stovetop = Instantiate(obstacles[0], transform);
                 Vector3 stoveSpawn = spawnLocations[0];
                 stovetop.transform.position = stoveSpawn;
             }
-            else if (obstacleIndex == 0)
+            else if (obstacleIndex == 3)
             {
-                GameObject stovetop = Instantiate(obstacles[3], transform);
+                GameObject shelf = Instantiate(obstacles[3], transform);
                 Vector3 stoveSpawn = spawnLocations[3];
-                stovetop.transform.position = stoveSpawn;
+                shelf.transform.position = stoveSpawn;
             }
 
             yield return new WaitForSeconds(secondsBetweenSpawn);
