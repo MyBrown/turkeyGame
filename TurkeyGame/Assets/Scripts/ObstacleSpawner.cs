@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
     GameObject[] obstacles;
     public Vector3[] spawnLocations;
     private float utensilOffset;
+    private GameObject currentOb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,15 +28,14 @@ public class Spawner : MonoBehaviour
         {
             int obstacleIndex = Random.Range(0, 4);
             utensilOffset = Random.Range(0,2);
+            currentOb = obstacles[obstacleIndex];
             
             if (obstacleIndex == 1 || obstacleIndex == 2)
             {
-                GameObject currentOb = obstacles[obstacleIndex];
                 GameObject newObstacle = Instantiate(currentOb, transform);
                 currentOb.transform.Translate(0, utensilOffset, 0);
             }
             if (obstacleIndex == 0){
-                GameObject currentOb = obstacles[obstacleIndex];
                 Vector3 spawnLoc = spawnLocations[obstacleIndex];
                 GameObject newObstacle = Instantiate(currentOb, transform);
                 newObstacle.transform.position = spawnLoc;
