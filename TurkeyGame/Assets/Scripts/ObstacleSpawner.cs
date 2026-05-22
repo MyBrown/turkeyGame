@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             int obstacleIndex = Random.Range(0, 4);
-            utensilOffset = Random.Range(0,2);
+            utensilOffset = Random.Range(0,1);
             currentOb = obstacles[obstacleIndex];
             
             if (obstacleIndex == 1 || obstacleIndex == 2)
