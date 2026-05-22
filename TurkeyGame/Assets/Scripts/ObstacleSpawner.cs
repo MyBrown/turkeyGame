@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     public GameObject knife;
     public GameObject fork;
     public GameObject shelf;
+    private GameObject currentOb;
     public float secondsBetweenSpawn;
 
     public float utensilOffset;
@@ -27,10 +28,10 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             int obstacleIndex = Random.Range(0, 4);
+            currentOb = obstacles[obstacleIndex];
             
             if (obstacleIndex == 1 || obstacleIndex == 2)
             {
-                GameObject currentOb = obstacles[obstacleIndex];
                 GameObject newObstacle = Instantiate(currentOb, transform);
                 currentOb.transform.Translate(0, utensilOffset, 0);
             }
