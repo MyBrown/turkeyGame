@@ -90,7 +90,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.8, y: 1.8}
+  m_Size: {x: 2.25, y: 2.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3e5aef13f78a241ab4323e0942ba88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aliveTurkey: {fileID: 0}
+  cookedTurkey: {fileID: 0}
   jumpforce: 8
   maxExtraJumps: 1
   groundLayer:
@@ -173,7 +175,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.8, y: 1.8}
-    newSize: {x: 1.8, y: 1.8}
+    newSize: {x: 2.25, y: 2.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

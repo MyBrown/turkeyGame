@@ -507,7 +507,7 @@ MonoBehaviour:
   knife: {fileID: 8229954652599706951, guid: 03d1483893d141b4a9c868ddbecd36e5, type: 3}
   fork: {fileID: 1107067811882772926, guid: 98b8e485b6ab6f44d862728a1b0cfd86, type: 3}
   shelf: {fileID: 898400504817970945, guid: 903a7d60942925e4fbfe9af8a309cae5, type: 3}
-  utensilOffset: 0
+  secondsBetweenSpawn: 2
   spawnLocations:
   - {x: 13.49, y: -2.22, z: 0}
   - {x: 13.88, y: 4, z: 0}
